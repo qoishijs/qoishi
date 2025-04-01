@@ -1,0 +1,22 @@
+{
+  "name": "@qoishi/loader",
+  "type": "commonjs",
+  "version": "1.0.0",
+  "author": "montmorill <montmorillonite@qq.com>",
+  "license": "MIT",
+  "repository": "https://github.com/qoishijs/qoishi",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "esbuild --bundle --external:electron --outdir=dist",
+    "build:main": "yarn build --platform=node main.ts",
+    "build:preload": "yarn build --platform=browser preload.ts",
+    "build:renderer": "yarn build --platform=browser --format=esm renderer.ts",
+    "dev:main": "yarn build:main --watch",
+    "dev:preload": "yarn build:preload --watch",
+    "dev:renderer": "yarn build:renderer --watch",
+    "dev": "conc -n=main,preload,renderer \"yarn dev:main\" \"yarn dev:preload\" \"yarn dev:renderer\""
+  },
+  "dependencies": {
+    "qoishi": "1.0.0"
+  }
+}

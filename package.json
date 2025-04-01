@@ -1,0 +1,27 @@
+{
+  "name": "@qoishi/monorepo",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "src/packages/*",
+    "src/plugins/*"
+  ],
+  "author": "montmorill <montmorillonite@qq.com>",
+  "license": "MIT",
+  "repository": "https://github.com/qoishijs/qoishi",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "loader": "yarn workspace @qoishi/loader"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.11.0",
+    "@types/electron": "^1.6.12",
+    "@types/node": "^22.13.10",
+    "concurrently": "^9.1.2",
+    "esbuild": "^0.25.1",
+    "eslint": "^9.23.0",
+    "typescript": "^5.8.2"
+  }
+}

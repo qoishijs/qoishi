@@ -1,0 +1,11 @@
+{
+  "name": "@qoishi/core",
+  "version": "1.0.0",
+  "author": "montmorill <montmorillonite@qq.com>",
+  "license": "MIT",
+  "repository": "https://github.com/qoishijs/qoishi",
+  "main": "index.ts",
+  "dependencies": {
+    "cordis": "^3.18.1"
+  }
+}
