@@ -12,7 +12,7 @@ declare module 'qoishi' {
 /** @see https://electronjs.org/docs/api/shell */
 export default class ShellService extends Service {
   constructor(ctx: Context) {
-    super(ctx, 'shell')
+    super(ctx, 'shell', true)
   }
 
   /**
