@@ -4,17 +4,12 @@
   "version": "1.0.0",
   "private": true,
   "workspaces": [
-    "src/packages/*",
-    "src/plugins/*"
+    "packages/*",
+    "plugins/*"
   ],
   "author": "montmorill <montmorillonite@qq.com>",
   "license": "MIT",
   "repository": "https://github.com/qoishijs/qoishi",
-  "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "loader": "yarn workspace @qoishi/loader"
-  },
   "devDependencies": {
     "@antfu/eslint-config": "^4.11.0",
     "@types/electron": "^1.6.12",

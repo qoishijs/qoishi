@@ -1,15 +1,14 @@
-import { app } from 'qoishi'
-import {} from './shell'
+import {} from '../node/shell'
+import { app } from '../shared'
 
-// eslint-disable-next-line antfu/no-top-level-await
 const [styleSheet, templates] = await Promise.all([
-  fetch('local:///src/packages/loader/static/style.css')
+  fetch('local:///packages/loader/static/style.css')
     .then(async (response) => {
       const sheet = new CSSStyleSheet()
       await sheet.replace(await response.text())
       return sheet
     }),
-  fetch('local:///src/packages/loader/static/template.html')
+  fetch('local:///packages/loader/static/template.html')
     .then(response => response.text())
     .then(string => new DOMParser().parseFromString(string, 'text/html')),
 ])

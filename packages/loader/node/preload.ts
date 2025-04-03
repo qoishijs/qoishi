@@ -9,7 +9,7 @@ declare module 'qoishi' {
 window.document.addEventListener('DOMContentLoaded', () => {
   const script = window.document.createElement('script')
   script.type = 'module'
-  script.src = 'local:///src/packages/loader/dist/renderer.js'
+  script.src = 'local:///packages/loader/dist/renderer.js'
   window.document.head.prepend(script)
 })
 

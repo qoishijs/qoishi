@@ -1,11 +1,11 @@
 {
   "name": "qoishi",
+  "type": "module",
   "version": "1.0.0",
   "author": "montmorill <montmorillonite@qq.com>",
   "license": "MIT",
   "repository": "https://github.com/qoishijs/qoishi",
-  "main": "index.js",
   "dependencies": {
-    "@qoishi/core": "1.0.0"
+    "cordis": "^3.18.1"
   }
 }

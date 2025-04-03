@@ -1,7 +1,7 @@
 import type { BrowserWindow } from 'electron'
 import { join } from 'node:path'
 import process from 'node:process'
-import { app } from 'qoishi'
+import { app } from '../shared'
 import * as protocol from './protocol'
 import ShellService from './shell'
 

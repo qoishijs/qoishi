@@ -1,0 +1,16 @@
+{
+  "name": "@qoishi/loader",
+  "type": "commonjs",
+  "version": "1.0.0",
+  "author": "montmorill <montmorillonite@qq.com>",
+  "license": "MIT",
+  "repository": "https://github.com/qoishijs/qoishi",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "loader": "yarn workspace @qoishi/loader"
+  },
+  "dependencies": {
+    "qoishi": "^1.0.0"
+  }
+}

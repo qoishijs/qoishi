@@ -1,4 +1,4 @@
-import { app } from 'qoishi'
+import { app } from '../shared'
 import './components'
 
 declare module 'qoishi' {
@@ -8,5 +8,3 @@ declare module 'qoishi' {
 }
 
 app.emit('render')
-
-console.log('RENDERER INSTALLED')
