@@ -1,10 +1,9 @@
-import { app } from 'qoishi'
+import { Context } from 'qoishi'
+import * as qoishi from 'qoishi/preload'
 
-declare module 'qoishi' {
-  interface Events {
-    preload(): void
-  }
-}
+const app = new Context()
+app.plugin(qoishi)
+app.start()
 
 window.document.addEventListener('DOMContentLoaded', () => {
   const script = window.document.createElement('script')
@@ -12,5 +11,3 @@ window.document.addEventListener('DOMContentLoaded', () => {
   script.src = 'local:///packages/loader/dist/renderer.js'
   window.document.head.prepend(script)
 })
-
-app.emit('preload')

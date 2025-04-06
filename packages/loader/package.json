@@ -5,10 +5,17 @@
   "author": "montmorill <montmorillonite@qq.com>",
   "license": "MIT",
   "repository": "https://github.com/qoishijs/qoishi",
+  "main": "dist/main.js",
   "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "loader": "yarn workspace @qoishi/loader"
+    "build": "esbuild --bundle --external:electron --outdir=dist --bundle",
+    "build:main": "yarn build --platform=node main.ts",
+    "build:browser": "yarn build --platform=browser --format=esm",
+    "build:preload": "yarn build:browser --format=cjs preload.ts",
+    "build:renderer": "yarn build:browser --format=cjs renderer.ts",
+    "dev:main": "yarn build:main --watch",
+    "dev:preload": "yarn build:preload --watch",
+    "dev:renderer": "yarn build:renderer --watch",
+    "dev": "conc -n=main,preload,renderer \"yarn dev:main\" \"yarn dev:preload\" \"yarn dev:renderer\""
   },
   "dependencies": {
     "qoishi": "^1.0.0"

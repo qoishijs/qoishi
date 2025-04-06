@@ -1,5 +1,4 @@
-import {} from '../node/shell'
-import { app } from '../shared'
+import { shell } from 'electron/common'
 
 const [styleSheet, templates] = await Promise.all([
   fetch('local:///packages/loader/static/style.css')
@@ -27,11 +26,7 @@ export class SettingElement extends HTMLElement {
     this.shadowRoot.adoptedStyleSheets = [styleSheet]
   }
 
-  attributeChangedCallback() {
-    this.settingUpdate()
-  }
-
-  settingUpdate() {}
+  attributeChangedCallback() {}
 }
 
 customElements.define('setting-section', class extends SettingElement {
@@ -41,10 +36,10 @@ customElements.define('setting-section', class extends SettingElement {
   constructor() {
     super('setting-section')
     this._title = this.shadowRoot.querySelector('h1')!
-    this.settingUpdate()
+    this.attributeChangedCallback()
   }
 
-  override settingUpdate() {
+  override attributeChangedCallback() {
     this._title.textContent = this.dataset.title!
   }
 })
@@ -67,15 +62,15 @@ customElements.define('setting-list', class extends SettingElement {
     this._title = this.shadowRoot.querySelector('h2')!
     this._slot = this.shadowRoot.querySelector('slot')!
     this._head.addEventListener('click', () => this.toggleAttribute('is-active'))
-    this.settingUpdate()
+    this.attributeChangedCallback()
     new MutationObserver((_, observer) => {
       observer.disconnect()
-      this.settingUpdate()
+      this.attributeChangedCallback()
       observer.observe(this, { childList: true })
     }).observe(this, { childList: true })
   }
 
-  override settingUpdate() {
+  override attributeChangedCallback() {
     this._title.textContent = this.dataset.title!
     const slotChildren = this._slot.assignedElements() as HTMLElement[]
     this.querySelectorAll('setting-divider').forEach(node => node.remove())
@@ -190,7 +185,7 @@ customElements.define('setting-link', class extends SettingElement {
     super('setting-link')
     this.addEventListener('click', () => {
       if (this.dataset.value) {
-        app.shell.openExternal(this.dataset.value)
+        shell.openExternal(this.dataset.value)
       }
     })
   }
@@ -216,10 +211,10 @@ customElements.define('setting-modal', class extends SettingElement {
     this._modal = this.shadowRoot.querySelector('.modal')!
     this._close.addEventListener('click', () => this.toggleAttribute('is-active'))
     this._modal.addEventListener('click', () => this.toggleAttribute('is-active'))
-    this.settingUpdate()
+    this.attributeChangedCallback()
   }
 
-  override settingUpdate() {
+  override attributeChangedCallback() {
     this._title.textContent = this.dataset.title!
   }
 })
